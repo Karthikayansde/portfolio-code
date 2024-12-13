@@ -5,7 +5,8 @@ import 'package:karthi_kayan_portfolio/views/contact_ui.dart';
 import 'package:karthi_kayan_portfolio/views/hero_section_ui.dart';
 import 'package:karthi_kayan_portfolio/views/projects_ui.dart';
 import 'package:karthi_kayan_portfolio/views/skills_services_ui.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'package:scrollable_list_tab_scroller/scrollable_list_tab_scroller.dart';
+// import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class HomeUi extends StatelessWidget {
   HomeUi({super.key});
@@ -16,9 +17,6 @@ class HomeUi extends StatelessWidget {
     SkillsServicesUi(),
     ProjectsUi(),
     ContactUi(),
-    SizedBox(
-      width: double.maxFinite,
-    )
   ];
 
   @override
@@ -28,14 +26,39 @@ class HomeUi extends StatelessWidget {
         children: [
           const AppbarUi(),
           Expanded(
-            child: ScrollablePositionedList.builder(
-                scrollDirection: Axis.vertical,
-                itemScrollController: ScrollToPage.scrollController,
-                itemPositionsListener: ScrollToPage.itemPositionsListener,
-                itemCount: pagesList.length,
-                itemBuilder: (context, index) {
-                  return pagesList[index];
-                }),
+            child: ScrollableListTabScroller(
+            itemCount: pagesList.length,
+            headerContainerBuilder: (context, child) => Container(width: 500,height: 100,color: Colors.red,child: child,),
+            tabBuilder: (BuildContext context, int index, bool active){
+              print("asdf:$index====$active");
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  "data.keys $index",
+                  style: !active
+                      ? null
+                      : TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
+                ),
+              );
+            },
+            itemBuilder: (BuildContext context, int index) => Column(
+              children: [
+                Text(
+                  "pagesList",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                pagesList[index]
+              ],
+            ),
+          ),
+            // child: ScrollablePositionedList.builder(
+            //     scrollDirection: Axis.vertical,
+            //     itemScrollController: ScrollToPage.scrollController,
+            //     itemPositionsListener: ScrollToPage.itemPositionsListener,
+            //     itemCount: pagesList.length,
+            //     itemBuilder: (context, index) {
+            //       return pagesList[index];
+            //     }),
           )
         ],
       ),
