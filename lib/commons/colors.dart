@@ -8,6 +8,7 @@ class MyColors{
   /// app
   static const Color red = Color(0xFFFF1E00);
   static const Color textSecondary = Color(0xFF444444);
+  static const Color lightGrey = Color(0xFFF8F8F8);
   /// menu
   static const Color textMenu = Color(0xFF4C4E50);
   static const Color border = Color(0xFFDDBA7B);

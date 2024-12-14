@@ -127,7 +127,7 @@ class ContactUi extends StatelessWidget {
   static Widget resumeBtn(BuildContext context){
     return
       ButtonWidget(
-        onPressed: (){},isResumeBtn: true, label: TextWidget.semiBody(MyStrings.downloadResume, context, color: MyColors.white,),
+        onPressed: (){},isResumeBtn: true, label: TextWidget.body(MyStrings.downloadResume, context, color: MyColors.white,),
         height: Responsive.isMobile(context)? 35 : 50,
         width: Responsive.isMobile(context)? 170:220,);
   }

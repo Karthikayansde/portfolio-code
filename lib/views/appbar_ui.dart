@@ -54,7 +54,7 @@ class _AppbarUiState extends State<AppbarUi> {
                       },
                     height: Responsive.isMobile(context)? 30 : 45,
                     width: Responsive.isMobile(context)? 80:140,
-                    label: TextWidget.semiBody(MyStrings.contact, context, color: MyColors.white,),
+                    label: TextWidget.body(MyStrings.contact, context, color: MyColors.white,),
                 ),
               ),
               const SizedBox(width: 20,),
@@ -65,21 +65,21 @@ class _AppbarUiState extends State<AppbarUi> {
                   onPressed: () {ScrollToPage.changePage(Pages.about.index);},
                   height: 45,
                   width: 140,
-                  label: TextWidget.semiBody(MyStrings.about, context, color: MyColors.black,)
+                  label: TextWidget.body(MyStrings.about, context, color: MyColors.black,)
               ),
               const SizedBox(width: 20,),
               TextButtonWidget(
                   onPressed: () {ScrollToPage.changePage(Pages.skills.index);},
                   height: 45,
                   width: 145,
-                  label: TextWidget.semiBody(MyStrings.skillsServices, context, color: MyColors.black,)
+                  label: TextWidget.body(MyStrings.skillsServices, context, color: MyColors.black,)
               ),
               const SizedBox(width: 20,),
               TextButtonWidget(
                   onPressed: () {ScrollToPage.changePage(Pages.projects.index);},
                   height: 45,
                   width: 140,
-                  label: TextWidget.semiBody(MyStrings.projects, context, color: MyColors.black,)
+                  label: TextWidget.body(MyStrings.projects, context, color: MyColors.black,)
               ),
               const SizedBox(width: 20,),
               ButtonWidget(
@@ -88,7 +88,7 @@ class _AppbarUiState extends State<AppbarUi> {
                     },
                   height: 45,
                   width: 140,
-                  label: TextWidget.semiBody(MyStrings.contact, context, color: MyColors.white,)
+                  label: TextWidget.body(MyStrings.contact, context, color: MyColors.white,)
               ),
               const SizedBox(width: 30,),
             ],

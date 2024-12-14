@@ -5,7 +5,6 @@ import 'package:karthi_kayan_portfolio/commons/colors.dart';
 import 'package:karthi_kayan_portfolio/commons/project_data.dart';
 import 'package:karthi_kayan_portfolio/commons/strings.dart';
 import 'package:karthi_kayan_portfolio/services/responsive.dart';
-import 'package:karthi_kayan_portfolio/views/home_ui.dart';
 import 'package:karthi_kayan_portfolio/widgets/button_widget.dart';
 import 'package:karthi_kayan_portfolio/widgets/text_widget.dart';
 
@@ -17,7 +16,7 @@ class ProjectsUi extends StatefulWidget {
 }
 
 class _ProjectsUiState extends State<ProjectsUi> {
-  bool isShowMore = false;
+  // bool isShowMore = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,24 +36,26 @@ class _ProjectsUiState extends State<ProjectsUi> {
             child: Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,
                 alignment: WrapAlignment.spaceEvenly,
-                children: List.generate(isShowMore? ProjectData.projectsList.length : 4, (index) {
-                  return smallCard(context,);
+                children: List.generate(/*isShowMore?*/ ProjectData.projectsList.length /*: 4*/, (index) {
+                  // return smallCard(context,);
+                  // return projectCard(context,0);
+                  return projectBigCardUpdated(context,0);
                 })),
           ),
-          !isShowMore ? SizedBox(
-            height: 5,
-          ):Container(),
-          !isShowMore ? Align(
-            alignment: Alignment.centerRight,
-            child: TextButtonWidget(
-                onPressed: () {setState(() {
-                  isShowMore = true;
-                });},
-                height: 45,
-                width: 140,
-                label: TextWidget.semiBody(MyStrings.showMore, context, color: MyColors.black,)
-            ),
-          ):Container(),
+          // !isShowMore ? SizedBox(
+          //   height: 5,
+          // ):Container(),
+          // !isShowMore ? Align(
+          //   alignment: Alignment.centerRight,
+          //   child: TextButtonWidget(
+          //       onPressed: () {setState(() {
+          //         isShowMore = true;
+          //       });},
+          //       height: 45,
+          //       width: 140,
+          //       label: TextWidget.semiBody(MyStrings.showMore, context, color: MyColors.black,)
+          //   ),
+          // ):Container(),
         ],
       ),
     );
@@ -251,6 +252,25 @@ class _ProjectsUiState extends State<ProjectsUi> {
           ),
         )
       ],
+    );
+  }
+
+  Widget projectBigCardUpdated(BuildContext context, int index) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        color: MyColors.lightGrey,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Expanded(child: Container(color: Colors.red,)),
+            SizedBox(width: 8,),
+            Expanded(child: imageBox(context)),
+          ],
+        ),
+      ),
     );
   }
 }
