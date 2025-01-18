@@ -26,40 +26,19 @@ class HomeUi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Column(
         children: [
-          Column(
-            children: [
-              const AppbarUi(),
-              Expanded(
-                child: ScrollablePositionedList.builder(
-                    scrollDirection: Axis.vertical,
-                    itemScrollController: ScrollToPage.scrollController,
-                    itemPositionsListener: ScrollToPage.itemPositionsListener,
-                    itemCount: pagesList.length,
-                    itemBuilder: (context, index) {
-                      return pagesList[index];
-                    }),
-              )
-            ],
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child:
-          ColoredBox(
-            color: MyColors.red,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextWidget.body("The site is currently undergoing maintenance and will be completed on January 1, 2025.", context, color: MyColors.white,),
-                )
-              ],
-            ),
-          ),)
+          const AppbarUi(),
+          Expanded(
+            child: ScrollablePositionedList.builder(
+                scrollDirection: Axis.vertical,
+                itemScrollController: ScrollToPage.scrollController,
+                itemPositionsListener: ScrollToPage.itemPositionsListener,
+                itemCount: pagesList.length,
+                itemBuilder: (context, index) {
+                  return pagesList[index];
+                }),
+          )
         ],
       ),
       // floatingActionButton: Padding(
@@ -74,7 +53,6 @@ class HomeUi extends StatelessWidget {
 }
 
 class ScrollToPage {
-
   static final ItemScrollController scrollController = ItemScrollController();
   static final ItemPositionsListener itemPositionsListener = ItemPositionsListener.create();
 

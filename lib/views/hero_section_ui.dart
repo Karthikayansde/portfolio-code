@@ -5,11 +5,13 @@ import 'package:karthi_kayan_portfolio/commons/colors.dart';
 import 'package:karthi_kayan_portfolio/commons/constants.dart';
 import 'package:karthi_kayan_portfolio/commons/font_sizes.dart';
 import 'package:karthi_kayan_portfolio/commons/strings.dart';
+import 'package:karthi_kayan_portfolio/services/copy_paste_service.dart';
+import 'package:karthi_kayan_portfolio/services/functional_services.dart';
 import 'package:karthi_kayan_portfolio/services/responsive.dart';
+import 'package:karthi_kayan_portfolio/services/url_launcher.dart';
 import 'package:karthi_kayan_portfolio/views/contact_ui.dart';
 import 'package:karthi_kayan_portfolio/widgets/contact_icon_widget.dart';
 import 'package:karthi_kayan_portfolio/widgets/text_widget.dart';
-import 'package:stroke_text/stroke_text.dart';
 
 class HeroSectionUi extends StatefulWidget {
   const HeroSectionUi({super.key});
@@ -231,8 +233,11 @@ class _HeroSectionUiState extends State<HeroSectionUi> {
           children: [
             Row(
               children: [
-                ContactIconWidget(image: "assets/gmail.png", onPressed: (){},label: '',),
-                ContactIconWidget(image: "assets/gmail.png", onPressed: (){},label: '',),
+                ContactIconWidget(image: "assets/gmail.png", onPressed: () async {
+                  await FunctionalServices.launchAndCopyUrl(context: context, URL: Constants.linkLinkedIn);
+                },label: '',),
+                ContactIconWidget(image: "assets/gmail.png", onPressed: (){
+                },label: '',),
                 ContactIconWidget(image: "assets/gmail.png", onPressed: (){},label: '',),
                 ContactIconWidget(image: "assets/gmail.png", onPressed: (){},label: '',),
               ],

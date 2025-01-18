@@ -16,4 +16,6 @@ class MyStrings{
   static const String techStacks = 'Tech Stacks: ';
   static const String availableIn = 'Available In: ';
   static const String skillsAndServices = 'Skills & Services';
+  static const String viewOn = 'View On:';
+  static const String linkCopied = 'URL copied to clipboard';
 }

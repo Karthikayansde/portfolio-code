@@ -5,6 +5,8 @@ class Constants{
   static const List<String> certificateImageList = ["assets/certificate11.PNG", "assets/certificate22.PNG", "assets/certificate33.PNG", "assets/certificate44.JPG", "assets/ample.gif"];
   static const String font = 'MyFont';
   static const String font2 = 'MyFont';
+  static const String linkLinkedIn = 'https://www.linkedin.com/in/karthikayansde/';
+
 }
 enum Pages{
   heroSection,

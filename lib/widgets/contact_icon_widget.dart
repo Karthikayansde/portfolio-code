@@ -23,10 +23,10 @@ class ContactIconWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
+                    color: Colors.black.withOpacity(0.1),
                     spreadRadius: 1,
-                    blurRadius: 3,
-                    offset: Offset(0, 3),
+                    blurRadius: 2,
+                    offset: Offset(0, 2),
                   )
                 ],
                 color: MyColors.white,

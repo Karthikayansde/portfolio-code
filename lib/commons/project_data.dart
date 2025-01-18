@@ -14,9 +14,22 @@ class ProjectData{
           "availableInName": "Web",
           "availableInImage": "",
           "availableInLink": "https://karthikayansde.github.io/portfolio/"
+        },
+        {
+          "availableInName": "Web",
+          "availableInImage": "",
+          "availableInLink": "https://karthikayansde.github.io/portfolio/"
         }
       ],
       "techStack": [
+        {
+          "techStackImage":"assets/logo44.jpg",
+          "techStackName":"Flutter"
+        },
+        {
+          "techStackImage":"assets/logo44.jpg",
+          "techStackName":"Flutter"
+        },
         {
           "techStackImage":"assets/logo44.jpg",
           "techStackName":"Flutter"

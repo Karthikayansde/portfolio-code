@@ -228,49 +228,70 @@ class _ProjectsUiState extends State<ProjectsUi> {
   }
 
   Widget imageBox(BuildContext context){
-    return Stack(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 15.0, top: 15),
-          child: SizedBox(
-            width: Responsive.isMobile(context)? 300:500,
-            child: AspectRatio(
-              aspectRatio: 3/2,
-              child: Container(
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), border: Border.all(width: 1, color: MyColors.black), image: DecorationImage(image: AssetImage("assets/certificate44.JPG"))),
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          top: 0,
-          right: 0,
-          child: RoundButtonWidget(
-            height: 75,
-            width: 75,
-            onPressed: () {},
-          ),
-        )
-      ],
+    return AspectRatio(
+      aspectRatio: 3/2,
+      child: Container(
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), border: Border.all(width: 1, color: MyColors.black), image: DecorationImage(image: AssetImage("assets/certificate44.JPG"))),
+      ),
     );
   }
 
   Widget projectBigCardUpdated(BuildContext context, int index) {
     return Container(
+      constraints: BoxConstraints(
+        maxWidth: 1600
+      ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(30),
         color: MyColors.lightGrey,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
+        padding: const EdgeInsets.all(20.0),
+        child: Responsive.isVertical(context) || Responsive.isMobile(context) ?Column(
           children: [
-            Expanded(child: Container(color: Colors.red,)),
+            imageBox(context),
+            SizedBox(height: 10,),
+            text(index),
+          ],
+        ): Row(
+          children: [
+            Expanded(
+              child: text(index)
+            ),
             SizedBox(width: 8,),
             Expanded(child: imageBox(context)),
           ],
-        ),
+        )
       ),
+    );
+  }
+  Widget text(int index){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        TextWidget.header1(ProjectData.projectsList[index]['name'], context),
+        SizedBox(height: 10,),
+        TextWidget.body(ProjectData.projectsList[index]['details'], context),
+        Divider(color: MyColors.black,thickness: 0.5,),
+        Wrap(
+          children: [
+            ...ProjectData.projectsList[index]['techStack'].map<Widget>((fileName) => Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(color: Colors.red,height: 40,width: 100,),
+            )),
+          ],
+        ),
+        Divider(color: MyColors.black,thickness: 0.5,),
+        TextWidget.semiBody(MyStrings.viewOn, context),
+        SizedBox(height: 5,),
+        TextOutLinedButtonWidget(
+            onPressed: () {},
+            height: 45,
+            width: 145,
+            label: TextWidget.body(MyStrings.skillsServices, context, color: MyColors.black,)
+        ),
+      ],
     );
   }
 }
